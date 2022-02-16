@@ -45,6 +45,20 @@ module TableauApi
 
         res['tsResponse']['user'] if res.code == 200
       end
+
+      def remove_user(group_id:, user_id:)
+        res = @client.connection.api_delete("sites/#{@client.auth.site_id}/users/#{user_id}")
+
+        res.code == 204
+      end
+
+      def remove_user(user_id:)
+        res = @client.connection.api_delete("sites/#{@client.auth.site_id}/users/#{user_id}")
+
+        raise 'failed to remove user' if res.code != 204
+
+        res.code == 204
+      end
     end
   end
 end
