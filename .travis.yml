@@ -1,9 +1,0 @@
-cache: bundler
-branches:
-  only:
-    - main
-language: ruby
-rvm:
-  - 2.7.5
-  - 2.6.9
-  
