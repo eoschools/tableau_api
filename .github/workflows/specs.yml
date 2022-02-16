@@ -5,7 +5,6 @@ on: [push]
 jobs:
   specs:
     runs-on: ubuntu-latest
-    env:
     steps:
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
