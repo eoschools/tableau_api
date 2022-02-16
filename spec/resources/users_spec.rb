@@ -60,4 +60,14 @@ describe TableauApi::Resources::Users, vcr: { cassette_name: 'users' } do
       end.to raise_error(RuntimeError, 'failed to find user')
     end
   end
+
+  describe '#remove_user' do
+    it 'can remove a user from a site' do
+      user = client.users.list.find do |u|
+        u['name'] == 'test'
+      end
+      expect(client.users.remove_user(user_id: user['id'])).to be true
+    end
+  end
+
 end
