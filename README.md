@@ -1,7 +1,8 @@
 # tableau_api
 
-[![Build Status](https://travis-ci.org/civisanalytics/tableau_api.svg?branch=master)](https://travis-ci.org/civisanalytics/tableau_api)
-[![Gem Version](https://badge.fury.io/rb/tableau_api.svg)](http://badge.fury.io/rb/tableau_api)
+[![GitHub version](https://badge.fury.io/gh/eoschools%2Ftableau_api.svg)](https://badge.fury.io/gh/eoschools%2Ftableau_api)
+![RSpec](https://github.com/eoschools/tableau_api/actions/workflows/specs.yml/badge.svg)
+![RuboCop](https://github.com/eoschools/tableau_api/actions/workflows/rubocop.yml/badge.svg)
 
 Ruby interface to the Tableau 9.0 API.
 
