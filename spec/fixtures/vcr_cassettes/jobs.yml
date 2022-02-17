@@ -61,7 +61,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - tableau_api/4.0.0 Ruby/2.4.1
+      - tableau_api/4.1.0 Ruby/2.7.5
       X-Tableau-Auth:
       - JLiIUYvpRIKOgQ5MtStpMQ|3P04IdDmWUI3nCSpmYIViDJvvTS6hVch
       Accept-Encoding:
@@ -123,7 +123,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - tableau_api/4.0.0 Ruby/2.4.1
+      - tableau_api/4.1.0 Ruby/2.7.5
       X-Tableau-Auth:
       - JLiIUYvpRIKOgQ5MtStpMQ|3P04IdDmWUI3nCSpmYIViDJvvTS6hVch
       Accept-Encoding:
@@ -195,7 +195,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - tableau_api/4.0.0 Ruby/2.4.1
+      - tableau_api/4.1.0 Ruby/2.7.5
       X-Tableau-Auth:
       - JLiIUYvpRIKOgQ5MtStpMQ|3P04IdDmWUI3nCSpmYIViDJvvTS6hVch
       Accept-Encoding:
@@ -253,7 +253,7 @@ http_interactions:
       string: "<tsRequest/>"
     headers:
       User-Agent:
-      - tableau_api/4.0.0 Ruby/2.4.1
+      - tableau_api/4.1.0 Ruby/2.7.5
       Content-Type:
       - application/xml
       X-Tableau-Auth:
@@ -310,7 +310,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - tableau_api/4.0.0 Ruby/2.4.1
+      - tableau_api/4.1.0 Ruby/2.7.5
       X-Tableau-Auth:
       - JLiIUYvpRIKOgQ5MtStpMQ|3P04IdDmWUI3nCSpmYIViDJvvTS6hVch
       Accept-Encoding:
@@ -455,7 +455,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - tableau_api/4.0.0 Ruby/2.4.1
+      - tableau_api/4.1.0 Ruby/2.7.5
       X-Tableau-Auth:
       - JLiIUYvpRIKOgQ5MtStpMQ|3P04IdDmWUI3nCSpmYIViDJvvTS6hVch
       Accept-Encoding:
