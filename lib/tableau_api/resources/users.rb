@@ -29,6 +29,11 @@ module TableauApi
         @client.connection.api_get_collection(url, 'users.user')
       end
 
+      def find_by_username(username:)
+        url = "sites/#{@client.auth.site_id}/users"
+        @client.connection.api_get_collection(url, 'users.user', {query: "filter=name:eq:#{username}"})
+      end
+
       def update_user(user_id:, site_role:)
         raise 'invalid site_role' unless SITE_ROLES.include? site_role
 

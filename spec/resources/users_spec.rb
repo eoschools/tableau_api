@@ -34,6 +34,16 @@ describe TableauApi::Resources::Users, vcr: { cassette_name: 'users' } do
     end
   end
 
+  describe '#find_user_by_username' do
+    # http://onlinehelp.tableau.com/v9.0/api/rest_api/en-us/help.htm#REST/rest_api_ref.htm#Get_Users_on_Site
+    it 'can find users by username in a site' do
+      sleep(15) if VCR.current_cassette.recording?
+      user = client.users.find_by_username(username: 'test')
+      expect(user).to be_an Enumerator
+      expect(user.count).to eq 1
+    end
+  end
+
   describe '#update_user' do
     # https://onlinehelp.tableau.com/current/api/rest_api/en-us/help.htm#REST/rest_api_ref.htm#Update_User
     it 'can change the site role of a user in a site' do

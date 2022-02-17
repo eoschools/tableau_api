@@ -23,8 +23,8 @@ module TableauApi
           query += '&' unless query.empty?
           query += "pageSize=#{page_size}&pageNumber=#{page_number}"
           new_kwargs = kwargs.merge(query: query)
-
           res = api_get(path, **new_kwargs)
+          
           raise TableauError, res if res.code.to_s != '200'
 
           # ensure the result is an array because it will not be an array if there is only one element
