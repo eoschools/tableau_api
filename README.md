@@ -4,7 +4,7 @@
 ![RSpec](https://github.com/eoschools/tableau_api/actions/workflows/specs.yml/badge.svg)
 ![RuboCop](https://github.com/eoschools/tableau_api/actions/workflows/rubocop.yml/badge.svg)
 
-Ruby interface to the Tableau 9.0 API.
+Ruby interface to the Tableau API v3.1x.
 
 ## Installation
 
