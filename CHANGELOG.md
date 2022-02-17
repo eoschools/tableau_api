@@ -10,6 +10,16 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Specify major version number of ruby in Docker testing command in README
 
 
+## [4.1.0] - 2022-02-17
+
+### Changed/Fixed
+
+- Added Users#remove_user to remove the user from the site.
+- Added Users#find_by_username that returns the user with the matching
+  username.
+- Housekeeping, move from Travis to GA, update gems and ruby.
+
+
 ## [4.0.0] - 2020-11-30
 
 ### Changed/Fixed

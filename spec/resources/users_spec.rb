@@ -39,8 +39,8 @@ describe TableauApi::Resources::Users, vcr: { cassette_name: 'users' } do
     it 'can find users by username in a site' do
       sleep(15) if VCR.current_cassette.recording?
       user = client.users.find_by_username(username: 'test')
-      expect(user).to be_an Enumerator
-      expect(user.count).to eq 1
+      expect(user['id']).to be_a_tableau_id
+      expect(user).to eq('id' => user['id'], 'name' => 'test', 'siteRole' => 'ExplorerCanPublish', 'externalAuthUserId' => '')
     end
   end
 
