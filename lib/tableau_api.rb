@@ -1,5 +1,6 @@
 require 'httparty'
 require 'builder'
+require 'string_ext'
 require 'net/http/post/multipart'
 
 require 'tableau_api/version'

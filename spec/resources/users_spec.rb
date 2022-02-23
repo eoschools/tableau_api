@@ -6,7 +6,7 @@ describe TableauApi::Resources::Users, vcr: { cassette_name: 'users' } do
   describe '#create' do
     # http://onlinehelp.tableau.com/v9.0/api/rest_api/en-us/help.htm#REST/rest_api_ref.htm#Add_User_to_Site%3FTocPath%3DAPI%2520Reference%7C_____7
     it 'can create a user in a site' do
-      user = client.users.create(username: 'test', site_role: 'ExplorerCanPublish')
+      user = client.users.create(name: 'test', site_role: 'ExplorerCanPublish')
       expect(user['id']).to be_a_tableau_id
       expect(user).to eq(
         'id' => user['id'],
@@ -18,7 +18,7 @@ describe TableauApi::Resources::Users, vcr: { cassette_name: 'users' } do
     end
 
     it 'fails with a bad site_role' do
-      expect { client.users.create(username: 'test', site_role: 'foo') }.to raise_error('invalid site_role')
+      expect { client.users.create(name: 'test', site_role: 'foo') }.to raise_error('invalid site_role')
     end
   end
 
@@ -34,11 +34,11 @@ describe TableauApi::Resources::Users, vcr: { cassette_name: 'users' } do
     end
   end
 
-  describe '#find_user_by_username' do
+  describe '#find_user_by_name' do
     # http://onlinehelp.tableau.com/v9.0/api/rest_api/en-us/help.htm#REST/rest_api_ref.htm#Get_Users_on_Site
-    it 'can find users by username in a site' do
+    it 'can find users by name in a site' do
       sleep(15) if VCR.current_cassette.recording?
-      user = client.users.find_by_username(username: 'test')
+      user = client.users.find_by_name(name: 'test')
       expect(user['id']).to be_a_tableau_id
       expect(user).to eq('id' => user['id'], 'name' => 'test', 'siteRole' => 'ExplorerCanPublish', 'externalAuthUserId' => '')
     end
@@ -67,7 +67,7 @@ describe TableauApi::Resources::Users, vcr: { cassette_name: 'users' } do
     it 'raises an error if the user cannot be found' do
       expect do
         client.users.update_user(user_id: 'foo', site_role: 'Viewer')
-      end.to raise_error(RuntimeError, 'failed to find user')
+      end.to raise_error(RuntimeError, 'failed to get user for update')
     end
   end
 
@@ -76,7 +76,7 @@ describe TableauApi::Resources::Users, vcr: { cassette_name: 'users' } do
       user = client.users.list.find do |u|
         u['name'] == 'test'
       end
-      expect(client.users.remove_user(user_id: user['id'])).to be true
+      expect(client.users.remove_user(name: user['name'])).to be true
     end
   end
 

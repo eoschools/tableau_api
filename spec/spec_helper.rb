@@ -1,8 +1,5 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'tableau_api'
-
-require 'pry'
-
 require 'vcr'
 
 if ENV['TABLEAU_ADMIN_USERNAME'].nil? || ENV['TABLEAU_ADMIN_PASSWORD'].nil?

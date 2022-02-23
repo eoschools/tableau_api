@@ -229,7 +229,7 @@ http_interactions:
     uri: http://TABLEAU_HOST/api/3.1/sites/fb50c166-f809-44e0-995e-2cf56ceffbc0/users/ce93aaeb-fb25-4fbd-a573-74b549f5e95b
     body:
       encoding: UTF-8
-      string: <tsRequest><user name="test" siteRole="Explorer"/></tsRequest>
+      string: <tsRequest><user siteRole="Explorer"/></tsRequest>
     headers:
       Content-Type:
       - application/xml
