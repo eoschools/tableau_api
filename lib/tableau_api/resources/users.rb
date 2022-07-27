@@ -56,6 +56,8 @@ module TableauApi
 
       def remove_user(name:)
         user = find_by_name(name: name)
+        false if user.nil?
+
         res = @client.connection.api_delete("sites/#{@client.auth.site_id}/users/#{user['id']}")
         raise 'failed to remove user' if res.code != 204
 
