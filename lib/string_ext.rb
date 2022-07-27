@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # lifted from ruby
 class String
   def camelcase(*separators)
@@ -5,22 +7,22 @@ class String
     when Symbol, TrueClass, FalseClass, NilClass
       first_letter = separators.shift
     end
-  
+
     separators = ['_', '\s'] if separators.empty?
-  
-    str = self.dup
-  
+
+    str = dup
+
     separators.each do |s|
-      str = str.gsub(/(?:#{s}+)([a-z])/){ $1.upcase }
+      str = str.gsub(/(?:#{s}+)([a-z])/) { Regexp.last_match(1).upcase }
     end
-  
+
     case first_letter
     when :upper, true
-      str = str.gsub(/(\A|\s)([a-z])/){ $1 + $2.upcase }
+      str = str.gsub(/(\A|\s)([a-z])/) { Regexp.last_match(1) + Regexp.last_match(2).upcase }
     when :lower, false
-      str = str.gsub(/(\A|\s)([A-Z])/){ $1 + $2.downcase }
+      str = str.gsub(/(\A|\s)([A-Z])/) { Regexp.last_match(1) + Regexp.last_match(2).downcase }
     end
-  
+
     str
   end
 end

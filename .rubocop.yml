@@ -1,10 +1,11 @@
 inherit_from: .rubocop_todo.yml
 
 AllCops:
-  TargetRubyVersion: 2.7
+  TargetRubyVersion: 3.0
 
 ClassLength:
   Max: 200
+
 
 Style/Documentation:
   Enabled: false
@@ -17,6 +18,9 @@ MethodLength:
 
 Metrics/AbcSize:
   Max: 40
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
 
 MethodLength:
   Max: 30

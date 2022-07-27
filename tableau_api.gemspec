@@ -1,6 +1,6 @@
-# coding: utf-8
+# frozen_string_literal: true
 
-lib = File.expand_path('../lib', __FILE__)
+lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'tableau_api/version'
 
@@ -21,16 +21,16 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
   spec.required_ruby_version = '>= 3.0'
 
-  spec.add_dependency 'httparty', '~> 0.13'
   spec.add_dependency 'builder', '~> 3.2'
+  spec.add_dependency 'httparty', '~> 0.13'
   spec.add_dependency 'multipart-post', '~> 2.0'
   spec.add_dependency 'rubyzip', '~> 2.3.0'
 
+  spec.add_development_dependency 'byebug'
+  spec.add_development_dependency 'chunky_png', '~> 1.3.11'
   spec.add_development_dependency 'rake', '~> 11.0'
   spec.add_development_dependency 'rspec', '~> 3.6'
+  spec.add_development_dependency 'rubocop', '~> 0.93.0'
   spec.add_development_dependency 'vcr', '~> 3.0'
   spec.add_development_dependency 'webmock', '~> 3.0'
-  spec.add_development_dependency 'byebug'
-  spec.add_development_dependency 'rubocop', '~> 0.93.0'
-  spec.add_development_dependency 'chunky_png', '~> 1.3.11'
 end

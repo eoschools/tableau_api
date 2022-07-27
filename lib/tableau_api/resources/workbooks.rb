@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'zip'
 
 module TableauApi
@@ -59,6 +61,7 @@ module TableauApi
         res = @client.connection.api_get("sites/#{@client.auth.site_id}/workbooks/#{workbook_id}/permissions")
 
         raise TableauError, res if res.code != 200
+
         permissions = HTTParty::Parser.new(res.body, :xml).parse['tsResponse']['permissions']['granteeCapabilities']
         return [] if permissions.nil?
 
@@ -155,6 +158,7 @@ module TableauApi
                 capabilities.each do |k, v|
                   k = k.to_s
                   raise "invalid capability #{k}" unless CAPABILITIES.include? k
+
                   c.capability(name: k, mode: v ? 'Allow' : 'Deny')
                 end
               end

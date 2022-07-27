@@ -3,11 +3,14 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [4.3.1] - 2022-07-27
+## [4.3.2] - 2022-07-27
 
-### Changed
+### Changed/Fixed
 
 - Rework arguments in various places to support ruby 3.0 restrictions.
+- Bump version.
+- Sic rubocop on Ruby 3 standards
+- Fix problem where deleting a non-existent user causes an exception.
 
 ### Changed
 

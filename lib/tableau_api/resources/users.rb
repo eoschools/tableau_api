@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module TableauApi
   module Resources
     class Users < Base
@@ -31,26 +33,26 @@ module TableauApi
 
       def find_by_name(name:)
         url = "sites/#{@client.auth.site_id}/users"
-        res = @client.connection.api_get_collection(url, 'users.user', **{query: "filter=name:eq:#{name}"})
+        res = @client.connection.api_get_collection(url, 'users.user', **{ query: "filter=name:eq:#{name}" })
         res.first
       end
 
       def update_user(**parms)
-        parms = parms.transform_keys{|k| k.to_s.camelcase(:lower)}
-        user_id = parms.delete("userId")
+        parms = parms.transform_keys { |k| k.to_s.camelcase(:lower) }
+        user_id = parms.delete('userId')
         raise "invalid or missing user_id #{user_id} - #{parms}" if user_id.nil?
-        raise 'invalid site_role' unless parms["siteRole"].nil? || SITE_ROLES.include?(parms["siteRole"])
+        raise 'invalid site_role' unless parms['siteRole'].nil? || SITE_ROLES.include?(parms['siteRole'])
 
-        res = @client.connection.api_get ["sites", @client.auth.site_id, "users", user_id].join("/")
+        res = @client.connection.api_get ['sites', @client.auth.site_id, 'users', user_id].join('/')
         raise 'failed to get user for update' if res.code != 200
 
         user = res['tsResponse']['user']
         # parms["name"] ||= user["name"]
-        parms["siteRole"] ||= user["siteRole"]
+        parms['siteRole'] ||= user['siteRole']
         request = Builder::XmlMarkup.new.tsRequest do |ts|
           ts.user(parms)
         end
-        res = @client.connection.api_put(["sites", @client.auth.site_id, "users", user_id].join("/"), body: request)
+        res = @client.connection.api_put(['sites', @client.auth.site_id, 'users', user_id].join('/'), body: request)
         res['tsResponse']['user'] if res.code == 200
       end
 

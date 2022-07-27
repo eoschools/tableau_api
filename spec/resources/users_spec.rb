@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe TableauApi::Resources::Users, vcr: { cassette_name: 'users' } do
@@ -79,5 +81,4 @@ describe TableauApi::Resources::Users, vcr: { cassette_name: 'users' } do
       expect(client.users.remove_user(name: user['name'])).to be true
     end
   end
-
 end
