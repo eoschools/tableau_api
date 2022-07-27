@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [4.3.1] - 2022-07-27
+
+### Changed
+
+- Rework arguments in various places to support ruby 3.0 restrictions.
+
 ### Changed
 
 - Specify major version number of ruby in Docker testing command in README
