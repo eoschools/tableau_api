@@ -31,7 +31,7 @@ module TableauApi
 
       def find_by_name(name:)
         url = "sites/#{@client.auth.site_id}/users"
-        res = @client.connection.api_get_collection(url, 'users.user', {query: "filter=name:eq:#{name}"})
+        res = @client.connection.api_get_collection(url, 'users.user', **{query: "filter=name:eq:#{name}"})
         res.first
       end
 
